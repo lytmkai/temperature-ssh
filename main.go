@@ -18,7 +18,6 @@ type Config struct {
 	LogFile         string     `json:"logfile"`
 	MQTT            MQTTConfig `json:"mqtt"`
 	DefaultTempCmd  string     `json:"default_temp_cmd"`
-	Settings        Settings   `json:"settings"` // 新增：延时配置
 	Hosts           []Host     `json:"hosts"`
 	LoopIntervalSec int `json:"loop_interval_sec"` 
 	HostDelayMs     int `json:"host_delay_ms"`
@@ -86,7 +85,7 @@ func main() {
 	opts.SetPassword(config.MQTT.Password)
 	opts.SetAutoReconnect(true)
 	opts.SetConnectRetry(true)
-	opts.SetConnectRetryTimeOut(5 * time.Second)
+	// opts.SetConnectRetryTimeOut(5 * time.Second)
 
 	opts.SetConnectionLostHandler(func(c mqtt.Client, err error) {
 		logger.Printf("MQTT 连接丢失: %v", err)
