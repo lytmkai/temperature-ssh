@@ -1,0 +1,23 @@
+{
+  "logfile": "/root/standalone/go_script/temperature.log",
+  "mqtt": {
+    "broker": "tcp://10.0.0.30:51883",
+    "username": "xiang",
+    "password": "homelytmkai",
+    "client_id": "temperature_go",
+    "topic_prefix": "/homeassisant/sensor/%s/state"
+  },
+  "default_temp_cmd": "cat /sys/class/thermal/thermal_zone0/temp",
+  "loop_interval_sec": 30,
+  "host_delay_ms": 10,
+  "hosts": [
+    {
+      "name": "22",
+      "ipaddr": "10.0.0.22",
+      "user": "root",
+      "password": "22323",
+      "temp_cmd": ""
+    },
+
+  ]
+}
