@@ -69,7 +69,7 @@ func main() {
 	}
 
 	// 2. 初始化日志
-	logFile, err = os.OpenFile(config.LogFile, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0644)
+	logFile, err := os.OpenFile(config.LogFile, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "打开日志文件失败: %v\n", err)
 		os.Exit(1)
