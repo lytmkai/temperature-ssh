@@ -76,7 +76,7 @@ func main() {
 	opts.SetPassword(config.MQTT.Password)
 	opts.SetAutoReconnect(true)
 	opts.SetConnectRetry(true)
-	opts.SetConnectRetryTimeOut(5 * time.Second)
+	// opts.SetConnectRetryTimeOut(5 * time.Second)
 	
 	// 简单的连接丢失处理
 	opts.SetConnectionLostHandler(func(c mqtt.Client, err error) {
