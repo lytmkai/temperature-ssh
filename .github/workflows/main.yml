@@ -26,12 +26,12 @@ jobs:
         
     - name: Build Linux binary
       run: |
-        GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o temperature_monitor main.go
+        GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o temperature_ssh main.go
         
     - name: Upload binary as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: temperature-monitor-linux-amd64
-        path: temperature_monitor
+        name: temperature-ssh-linux-amd64
+        path: temperature_ssh
         retention-days: 30
         
