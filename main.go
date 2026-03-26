@@ -28,12 +28,8 @@ type MQTTConfig struct {
 	Password    string `json:"password"`
 	ClientID    string `json:"client_id"`
 	TopicPrefix string `json:"topic_prefix"`
-}
-
-// Settings 结构体映射延时配置
-type Settings struct {
-	LoopIntervalSec int `json:"loop_interval_sec"` // 对应 sleep(30)，单位：秒
-	HostDelayMs     int `json:"host_delay_ms"`     // 对应 usleep(10)，单位：毫秒
+	LoopIntervalSec int `json:"loop_interval_sec"` 
+	HostDelayMs     int `json:"host_delay_ms"`
 }
 
 type Host struct {
