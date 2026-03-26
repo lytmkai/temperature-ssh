@@ -20,6 +20,8 @@ type Config struct {
 	DefaultTempCmd  string     `json:"default_temp_cmd"`
 	Settings        Settings   `json:"settings"` // 新增：延时配置
 	Hosts           []Host     `json:"hosts"`
+	LoopIntervalSec int `json:"loop_interval_sec"` 
+	HostDelayMs     int `json:"host_delay_ms"`
 }
 
 type MQTTConfig struct {
@@ -28,8 +30,6 @@ type MQTTConfig struct {
 	Password    string `json:"password"`
 	ClientID    string `json:"client_id"`
 	TopicPrefix string `json:"topic_prefix"`
-	LoopIntervalSec int `json:"loop_interval_sec"` 
-	HostDelayMs     int `json:"host_delay_ms"`
 }
 
 type Host struct {
