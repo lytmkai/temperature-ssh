@@ -1,0 +1,37 @@
+name: Build Linux Binary
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.22' # 根据你的项目需求调整 Go 版本
+
+    - name: Tidy and verify
+      run: |
+        go mod tidy
+        
+    - name: Build Linux binary
+      run: |
+        GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o temperature_ssh main.go
+        
+    - name: Upload binary as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: temperature-ssh-linux-amd64
+        path: temperature_ssh
+        retention-days: 30
+        
